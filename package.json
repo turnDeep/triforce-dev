@@ -1,0 +1,23 @@
+{
+  "name": "triforce-dev",
+  "version": "1.0.0",
+  "description": "三位一体開発フレームワーク - Human × Claude Code × Gemini CLI",
+  "scripts": {
+    "dev": "echo 'プロジェクト固有の開発コマンドを設定してください'",
+    "build": "echo 'プロジェクト固有のビルドコマンドを設定してください'",
+    "test": "echo 'プロジェクト固有のテストコマンドを設定してください'",
+    "lint": "echo 'プロジェクト固有のリントコマンドを設定してください'",
+    "typecheck": "echo 'プロジェクト固有の型チェックコマンドを設定してください'"
+  },
+  "keywords": [
+    "claude-code",
+    "gemini-cli",
+    "ai-development",
+    "triforce",
+    "三位一体"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

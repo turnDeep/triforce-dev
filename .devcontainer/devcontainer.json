@@ -5,7 +5,7 @@
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
 
   // コンテナ作成後に実行するコマンド
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli",
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli && make setup",
 
   // VS Code設定
   "customizations": {
