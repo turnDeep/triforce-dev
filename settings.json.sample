@@ -1,0 +1,29 @@
+{
+  "theme": "dark",
+  "model": "gemini-2.5-pro",
+  "toolDiscoveryCommand": "bash scripts/discover_tools.sh",
+  "toolCallCommand": "bash scripts/run_tool.sh",
+  "tools": {
+    "enabled": [
+      "read-file",
+      "read-folder",
+      "search-file-content",
+      "find-files",
+      "web-fetch"
+    ],
+    "disabled": [
+      "edit",
+      "write-file",
+      "shell"
+    ]
+  },
+  "memory": {
+    "maxContextLength": 100000,
+    "autoCompact": true,
+    "compactThreshold": 0.8
+  },
+  "sandbox": {
+    "enabled": true,
+    "dockerImage": "gemini-cli-sandbox:latest"
+  }
+}
