@@ -40,7 +40,7 @@
 ### 1. 必須ファイル
 
 ```
-プロジェクト/
+Triforce-dev/
 ├── CLAUDE.md           # Claudeの行動規範（必須）
 ├── GEMINI.md          # Geminiの行動規範（必須）
 ├── PROJECT_SETUP.md   # セットアップガイド
