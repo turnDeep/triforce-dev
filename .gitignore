@@ -1,0 +1,18 @@
+# 三位一体開発関連
+.claude/
+!.claude/commands/
+.gemini/settings.json
+*.log
+
+# 個人設定
+.env.local
+.env.*.local
+
+# 一時ファイル
+/tmp/
+*.tmp
+*.cache
+
+# IDEファイル（既に含まれている場合は不要）
+.vscode/
+.idea/
