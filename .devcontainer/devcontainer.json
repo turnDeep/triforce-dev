@@ -1,0 +1,44 @@
+{
+  "name": "Claude Code & Gemini CLI Dev Container",
+
+  // Node.js 20のイメージを使用
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+
+  // コンテナ作成後に実行するコマンド
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli",
+
+  // VS Code設定
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        // 必要に応じてVS Code拡張機能を追加
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // 環境変数の設定（必要に応じて）
+  "remoteEnv": {
+    // Claude Code用の環境変数（必要な場合）
+    // "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+
+    // Gemini CLI用の環境変数（必要な場合）
+    // "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}"
+  },
+
+  // ユーザー設定
+  "remoteUser": "node",
+
+  // 必要に応じてポートフォワーディング
+  // "forwardPorts": [3000],
+
+  // 追加のFeatures（必要に応じて）
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}
