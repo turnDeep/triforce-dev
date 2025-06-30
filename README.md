@@ -142,3 +142,169 @@ $ gemini -p "このコードのセキュリティ問題を指摘してくださ�
 -----
 
 **Remember**: AIツールは道具です。最終的な価値判断と責任は常に人間にあります。三位一体は、その判断をより良いものにするためのフレームワークです。
+
+# Dev ContainerでClaude Code & Gemini CLIセットアップガイド
+
+## 必要なファイル構成
+
+```
+プロジェクトフォルダ/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile (オプション)
+└── その他のプロジェクトファイル
+```
+
+## 1. devcontainer.json の作成
+
+`.devcontainer/devcontainer.json` ファイルを作成し、以下の内容を記述します：
+
+```json
+{
+  "name": "Claude Code & Gemini CLI Dev Container",
+
+  // Node.js 20のイメージを使用
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+
+  // コンテナ作成後に実行するコマンド
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli",
+
+  // VS Code設定
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        // 必要に応じてVS Code拡張機能を追加
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // 環境変数の設定（必要に応じて）
+  "remoteEnv": {
+    // Claude Code用の環境変数（必要な場合）
+    // "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+
+    // Gemini CLI用の環境変数（必要な場合）
+    // "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}"
+  },
+
+  // ユーザー設定
+  "remoteUser": "node",
+
+  // 必要に応じてポートフォワーディング
+  // "forwardPorts": [3000],
+
+  // 追加のFeatures（必要に応じて）
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}
+```
+
+## 2. カスタムDockerfileを使用する場合（オプション）
+
+より細かい制御が必要な場合は、`.devcontainer/Dockerfile` を作成：
+
+```dockerfile
+FROM mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm
+
+# 追加の依存関係をインストール
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# グローバルnpmパッケージのインストールは
+# postCreateCommandで行うため、ここでは行わない
+```
+
+Dockerfileを使用する場合は、`devcontainer.json` を以下のように修正：
+
+```json
+{
+  "name": "Claude Code & Gemini CLI Dev Container",
+
+  // imageの代わりにDockerfileを指定
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // 以下は同じ
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli",
+  // ...
+}
+```
+
+## 3. 使用方法
+
+1. **VS Codeで開く**
+   - VS CodeでプロジェクトフォルダーShellを開く
+   - コマンドパレット（Cmd/Ctrl+Shift+P）で「Dev Containers: Reopen in Container」を選択
+
+2. **初回起動時**
+   - コンテナのビルドが開始される
+   - postCreateCommandが実行され、両CLIツールがインストールされる
+
+3. **CLIツールの使用**
+   ```bash
+   # Claude Codeの起動
+   claude
+
+   # Gemini CLIの起動
+   gemini
+   ```
+
+## 4. 認証設定
+
+### Claude Code
+初回実行時にOAuth認証が必要です：
+```bash
+claude
+# ブラウザが開き、Anthropicアカウントでの認証を求められます
+```
+
+### Gemini CLI
+初回実行時に認証方法を選択：
+```bash
+gemini
+# "Login with Google" を選択（無料枠: 60リクエスト/分、1000リクエスト/日）
+# またはAPIキーを使用
+```
+
+## 5. トラブルシューティング
+
+### npmパッケージのインストールに失敗する場合
+```json
+// postCreateCommandを以下のように修正
+"postCreateCommand": "sudo npm install -g @anthropic-ai/claude-code @google/gemini-cli"
+```
+
+### Node.jsバージョンが古い場合
+両ツールともNode.js 18以上が必要です。imageを新しいバージョンに変更：
+```json
+"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm"
+```
+
+### 環境変数でAPIキーを設定する場合
+```json
+"remoteEnv": {
+  "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+  "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}"
+}
+```
+ローカルマシンで環境変数を設定しておく必要があります。
+
+## 6. 複数プロジェクトでの再利用
+
+この設定を複数のプロジェクトで使用する場合は、GitHub等でテンプレートリポジトリとして管理することをお勧めします。
+
+## 参考リンク
+
+- [Claude Code ドキュメント](https://docs.anthropic.com/en/docs/claude-code/overview)
+- [Gemini CLI GitHub](https://github.com/google-gemini/gemini-cli)
+- [Dev Containers仕様](https://containers.dev/)
