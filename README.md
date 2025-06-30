@@ -1,4 +1,4 @@
-# 🔺 三位一体開発フレームワーク 🔺
+# 🔺 Triforce Dev Framework - Human × Claude Code × Gemini CLI collaborative development 🔺
 
 **人間 × Claude Code × Gemini CLI = 開発効率の最大化**
 
