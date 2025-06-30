@@ -1,0 +1,23 @@
+{
+  "user_preferences": {
+    "name": "",
+    "preferred_language": "TypeScript",
+    "coding_style": "関数型プログラミングを好む",
+    "git_workflow": "feature branch + squash merge"
+  },
+  "development_environment": {
+    "os": "",
+    "editor": "VS Code",
+    "terminal": ""
+  },
+  "communication_style": {
+    "language": "日本語",
+    "detail_level": "簡潔だが正確に",
+    "confirmation_preference": "重要な変更は必ず確認"
+  },
+  "project_defaults": {
+    "test_framework": "Jest",
+    "linter": "ESLint + Prettier",
+    "commit_style": "Conventional Commits"
+  }
+}
