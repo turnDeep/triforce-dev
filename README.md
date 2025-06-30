@@ -8,7 +8,7 @@
 
 1. **リポジトリをクローンまたはテンプレートとして使用:**
    ```bash
-   git clone https://github.com/your-username/triforce-dev.git
+   git clone https://github.com/turnDeep/triforce-dev.git
    # または GitHub UI で "Use this template" をクリック
    ```
 
