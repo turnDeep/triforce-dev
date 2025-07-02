@@ -1,4 +1,4 @@
- 🔺 Triforce Dev Framework 🔺
+# 🔺 Triforce Dev Framework 🔺
 
 **人間 × Claude Code × Gemini CLI = 開発効率の最大化**
 
