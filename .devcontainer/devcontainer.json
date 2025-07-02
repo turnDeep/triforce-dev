@@ -1,5 +1,6 @@
 {
   "name": "Claude Code & Gemini CLI Dev Container",
+  "version": "1.0.1",
   
   // buildの代わりに直接imageを使用
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
