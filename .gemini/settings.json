@@ -1,7 +1,6 @@
 {
   "theme": "dark",
   "model": "gemini-2.5-pro",
-  "toolDiscoveryCommand": "bash scripts/discover_tools.sh",
   "toolCallCommand": "bash scripts/run_tool.sh",
   "tools": {
     "enabled": [
