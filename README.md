@@ -1,4 +1,4 @@
-# 🔺 Triforce Dev Framework 🔺
+ 🔺 Triforce Dev Framework 🔺
 
 **人間 × Claude Code × Gemini CLI = 開発効率の最大化**
 
@@ -98,7 +98,7 @@
 
 ## 📜 ライセンス
 
-このプロジェクトは [MITライセンス](LICENSE) の下で公開されています。 (必要に応じてLICENSEファイルを追加してください)
+このプロジェクトは [MITライセンス](LICENSE) の下で公開されています。
 
 ---
 
