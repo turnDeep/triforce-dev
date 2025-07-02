@@ -1,5 +1,7 @@
 # 🔺 Triforce Dev Framework 🔺
 
+**Current Version: 1.1.0**
+
 **人間 × Claude Code × Gemini CLI = 開発効率の最大化**
 
 このリポジトリは、人間、Claude Code、Gemini CLIの三者が協力して開発を進めるための「三位一体開発フレームワーク」のテンプレートです。それぞれの強みを活かし、弱点を補い合うことで、より効率的で質の高い開発を目指します。
