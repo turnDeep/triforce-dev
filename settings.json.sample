@@ -25,5 +25,17 @@
   "sandbox": {
     "enabled": true,
     "dockerImage": "gemini-cli-sandbox:latest"
+  },
+  "contextFiles": {
+    "autoInclude": [
+      "~/PDF"
+    ],
+    "extensions": [".pdf", ".txt", ".md"],
+    "maxFileSize": "10MB"
+  },
+  "startup": {
+    "commands": [
+      "find ~/PDF -name '*.pdf' -o -name '*.txt' -o -name '*.md' | head -20"
+    ]
   }
 }
