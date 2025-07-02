@@ -9,7 +9,8 @@
       "read-folder",
       "search-file-content",
       "find-files",
-      "web-fetch"
+      "web-fetch",
+      "web-search"
     ],
     "disabled": [
       "edit",
